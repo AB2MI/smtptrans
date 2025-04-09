@@ -1,131 +1,70 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+// import * as React from 'react';
+// import { LogBox } from 'react-native';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
+// // Screens
+// import HomeScreen from './src/screens/bottomnavigation/HomeScreen';
+// import SplashScreen from "./src/screens/bottomnavigation/SplashScreen";
+// import MapTracking from "./src/screens/map/MapTracking";
+// import Profil from "./src/screens/Profil";
+
+// const Stack = createNativeStackNavigator();
+
+// // Ignore specific warnings
+// LogBox.ignoreLogs([
+//   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
+//   'VirtualizedLists should never be nested'
+// ]);
+
+// function App() {
+//   return (
+//     <GestureHandlerRootView style={{ flex: 1 }}>
+//       <NavigationContainer>
+//         <Stack.Navigator 
+//           initialRouteName="SplashScreen"
+//           screenOptions={{ headerShown: false }}
+//         >
+//           <Stack.Screen name="SplashScreen" component={SplashScreen} />
+//           <Stack.Screen name="Profil" component={Profil} />
+//           <Stack.Screen name="HomeScreen" component={HomeScreen} />
+//           <Stack.Screen name="MapTracking" component={MapTracking} />
+//         </Stack.Navigator>
+//       </NavigationContainer>
+//     </GestureHandlerRootView>
+//   );
+// }
+
+// export default App;
+
+
+// src/App.tsx
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const App: React.FC = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <div style={styles.container}>
+      <h1 style={styles.title}>Welcome to My React App</h1>
+      <p style={styles.text}>This is a default setup using TypeScript.</p>
+    </div>
   );
-}
+};
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  /*
-   * To keep the template simple and small we're adding padding to prevent view
-   * from rendering under the System UI.
-   * For bigger apps the reccomendation is to use `react-native-safe-area-context`:
-   * https://github.com/AppAndFlow/react-native-safe-area-context
-   *
-   * You can read more about it here:
-   * https://github.com/react-native-community/discussions-and-proposals/discussions/827
-   */
-  const safePadding = '5%';
-
-  return (
-    <View style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        style={backgroundStyle}>
-        <View style={{paddingRight: safePadding}}>
-          <Header/>
-        </View>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            paddingHorizontal: safePadding,
-            paddingBottom: safePadding,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+const styles: { [key: string]: React.CSSProperties } = {
+  container: {
+    padding: '2rem',
+    textAlign: 'center',
+    fontFamily: 'Arial, sans-serif',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  title: {
+    fontSize: '2rem',
+    color: '#333',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  text: {
+    fontSize: '1rem',
+    color: '#666',
   },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+};
 
 export default App;
